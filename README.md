@@ -6,7 +6,7 @@
  
  date    : 2024/10/15
 
- update :
+ update : 2024/10/16 
 
 ***
 
@@ -38,7 +38,7 @@ bun run dev
 ***
 ### example
 
-* plan : Schedule app
+* todo : TODO app
 * bookmark: bookmark edit
 
 *** 
