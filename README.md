@@ -11,7 +11,7 @@
 ***
 
 d1 + shadcn/ui + Express.js + React
-* bolt.new generate bolt.new generate code  fix
+* bolt.new generate code  fix
 
 ***
 ### workers + D1 database
