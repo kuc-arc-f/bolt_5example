@@ -33,16 +33,16 @@ function App() {
 
   const handleAddEntry = async() => {
     if (date && content) {
-console.log("date=", format(date, 'yyyy-MM-dd'));
+      //console.log("date=", format(date, 'yyyy-MM-dd'));
       //console.log("toISOString=", date.toISOString());
       const newEntry = {
         id: Date.now().toString(),
-        date: date.toISOString(),
+        date: format(date, 'yyyy-MM-dd'),
         content
       };
       let resulte = await CrudIndex.create(newEntry);
 console.log(resulte);
-      setScheduleEntries(resulte);
+      location.reload();
       setContent('');
     }
   };
@@ -58,15 +58,15 @@ console.log(resulte);
       const updatedEntries = scheduleEntries.map(entry =>
         entry.id === editingEntry.id ? { ...entry, date, content } : entry
       );
-      //console.log(updatedEntries);
       const target = {
         id: editingEntry.id,
-        date: date.toISOString(),
+        date: format(date, 'yyyy-MM-dd'),
         content
       };
       let resulte = await CrudIndex.update(target);
       console.log(resulte);
-      setScheduleEntries(resulte);
+      location.reload();
+      //setScheduleEntries(resulte);
       setEditingEntry(null);
       setContent('');
     }
@@ -79,9 +79,12 @@ console.log(resulte);
   //
   const handleDeleteEntry = async (id: string) => {
     const resulte = await CrudIndex.delete(id);
-    const d = await CrudIndex.getList();
-    //console.log(d);
-    setScheduleEntries(d);
+console.log(resulte);
+    if(resulte.ret === 200){
+    const resList = await CrudIndex.getList();
+    //console.log(resList);
+     setScheduleEntries(resList);
+    }
   };
 
   return (

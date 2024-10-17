@@ -22,8 +22,7 @@ function App() {
   useEffect(() => {
     (async() => {
       const d = await CrudIndex.getList();
-      //data = d;
-      setMessages(d);
+      setMessages(d.data);
       console.log(d);
     })()
   }, []);
@@ -41,13 +40,13 @@ function App() {
         parentId: replyingTo,
       };
       const resulte = await CrudIndex.create(newMessage);
-      setMessages(resulte);
       setInputMessage('');
       
       // ボットの応答をシミュレート
       setTimeout(async() => {
         if(replyingTo){ 
-          setReplyingTo(null)
+          setReplyingTo(null);
+          location.reload();
           return; 
         }
         const botResponse: Message = {
@@ -58,7 +57,8 @@ function App() {
         };
         const resulte = await CrudIndex.create(botResponse);
         console.log(resulte);
-        setMessages(resulte);
+        location.reload();
+        //setMessages(resulte);
         //setReplyingTo(null);
       }, 1000);
     } catch (e) {
@@ -74,7 +74,7 @@ function App() {
     try{    
       const resulte = await CrudIndex.delete(messageId);
       const d = await CrudIndex.getList();
-      setMessages(d);
+      setMessages(d.data);
     } catch (e) {
       console.error(e);
     }

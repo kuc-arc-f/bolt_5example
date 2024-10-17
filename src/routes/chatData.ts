@@ -8,6 +8,26 @@ const tableData = {
   *
   * @return
   */ 
+  convertTextArray: function(items: any){
+    try {
+      let ret = [];
+      items.forEach((item) => {
+        console.log(item)
+        item.text = item.text_post;
+        ret.push(item);
+      });
+      return ret;
+    } catch (error) {
+      console.error(error);
+      throw new Error("error, convertTextArray");
+    }
+  },
+  /**
+  * 
+  * @param
+  *
+  * @return
+  */ 
   create: function(body: any){
     try {
       if(!body){

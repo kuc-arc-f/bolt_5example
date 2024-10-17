@@ -130,6 +130,26 @@ console.log("id=", body.id);
       throw new Error("error, update");
     }
   },
+  /**
+  * 
+  * @param
+  *
+  * @return
+  */ 
+  convertRowArray: function(items: any){
+    try {
+      let ret = [];
+      items.forEach((item) => {
+        //console.log(item)
+        item.date = item.p_date;
+        ret.push(item);
+      });
+      return ret;
+    } catch (error) {
+      console.error(error);
+      throw new Error("error, convertRowArray");
+    }
+  },
 }
 
 export default tableData;

@@ -9,14 +9,14 @@ const CrudIndex = {
   */ 
   create:  async function(values: any) {
     try{
-//console.log("#getList");
       let item  = values;     
 //return;
       const json = await HttpCommon.post(item, "/api/plan/create");
+console.log(json);
       let items = json;
-//      const out = [];
-      const out = this.convertDateArray(items);
-      return out;
+//      const out = this.convertDateArray(json);
+//console.log(out);
+      return json;
     } catch (e) {
       console.error(e);
     } 
@@ -73,9 +73,10 @@ const CrudIndex = {
 //console.log("#getList");
       let item  = {}      
       const json = await HttpCommon.post(item, "/api/plan/get_list");
+      console.log(json.data);
       let items = json;
-      const out = this.convertDateArray(items);
-      //console.log(json);
+      const out = this.convertDateArray(json.data);
+console.log(out);
       return out;
     } catch (e) {
       console.error(e);
