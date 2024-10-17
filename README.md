@@ -41,6 +41,8 @@ bun run dev
 
 * todo : TODO app
 * bookmark: bookmark edit
+* plan: schedule example
+* chat: chat app
 
 *** 
 # License
