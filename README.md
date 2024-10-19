@@ -21,8 +21,14 @@ https://github.com/kuc-arc-f/hono_34api
 ***
 ### Setup
 * .env
-
+* auth , API_URL info
 ```
+APP_NAME="bolt_5"
+AUTH_USER_MAIL="test1@example.com"
+AUTH_PASSWORD="1234"
+AUTH_USER_ID=1
+# EXPIRED_TIME: min set
+AUTH_EXPIRED_TIME=120
 EXTERNAL_API_URL=https://localhost
 ```
 
