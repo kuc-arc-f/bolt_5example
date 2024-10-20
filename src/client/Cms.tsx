@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     (async() => {
       const d = await CrudIndex.getList();
-      setArticles(d);
+      setArticles(d.data);
       console.log(d);
     })()
   }, []);
@@ -43,7 +43,7 @@ function App() {
         target.content = content;
         let resulte = await CrudIndex.update(target);
         console.log(resulte);
-        setArticles(resulte);
+        //setArticles(resulte);
       } 
 
       setEditingId(null);
@@ -53,8 +53,9 @@ function App() {
       };
 console.log(newEntry);
       let resulte = await CrudIndex.create(newEntry);
-      //console.log(resulte);
-      setArticles(resulte);
+      console.log(resulte);
+      location.reload();
+      //setArticles(resulte);
     }
     setTitle('');
     setContent('');

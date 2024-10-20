@@ -13,8 +13,8 @@ const CrudIndex = {
       const json = await HttpCommon.post(item, "/api/cms/create");
       let items = json;
 console.log(items);
-      const out = this.convertDateArray(items);
-      return out;
+      //const out = this.convertDateArray(items);
+      return json;
     } catch (e) {
       console.error(e);
     } 
@@ -71,10 +71,10 @@ console.log(items);
 //console.log("#getList");
       let item  = {}      
       const json = await HttpCommon.post(item, "/api/cms/get_list");
-      let items = json;
-      const out = this.convertDateArray(items);
+      //let items = json;
+      //const out = this.convertDateArray(items);
       //console.log(json);
-      return out;
+      return json;
     } catch (e) {
       console.error(e);
     } 
